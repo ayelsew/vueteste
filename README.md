@@ -1,5 +1,7 @@
 # vuetest
 
+Listagem de 10 personagens da API StarWars
+
 ## Project setup
 ```
 npm install
