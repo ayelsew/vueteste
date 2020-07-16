@@ -62,19 +62,22 @@ export default {
 
 @media (min-width: 961px) and (max-width: 1264px) {
   .main-content {
-    padding: 0 14rem !important ;
+    padding-right: 14rem !important ;
+    padding-left: 14rem !important ;
   }
 }
 
 @media (min-width: 1265px) and (max-width: 1904px) {
   .main-content {
-    padding: 0 16rem !important ;
+    padding-right: 16rem !important ;
+    padding-left: 16rem !important ;
   }
 }
 
 @media (min-width: 1905px) {
   .main-content {
-    padding: 0 20rem !important ;
+    padding-right: 20rem !important ;
+    padding-left: 20rem !important ;
   }
 }
 </style>
