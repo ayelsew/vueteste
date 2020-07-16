@@ -1,5 +1,8 @@
 <template>
-  <v-list >
+  <v-list>
+    <template v-if="sortedPersonagens.length === 0">
+      <v-progress-linear indeterminate color="cyan"></v-progress-linear>CARREGANDO
+    </template>
     <template v-for="(p, index) in sortedPersonagens">
       <v-divider :key="index"></v-divider>
 
