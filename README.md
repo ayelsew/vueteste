@@ -2,6 +2,9 @@
 
 Listagem de 10 personagens da API StarWars
 
+## OBS 
+Por motivos de configuração o https://codesandbox.io/ não consegue rodar o projeto com vuetify
+
 ## Project setup
 ```
 npm install
