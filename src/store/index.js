@@ -12,16 +12,22 @@ export default new Vuex.Store({
     SAVE_PERSONAGENS(state, data) {
       state.personagens = state.personagens.concat(data)
     },
+    SET_SELECTED_PERSONAGEM(state, { index, status }) {
+      state.personagens[index]['selected'] = status
+    },
     REMOVE_PERSONAGEM(state, index) {
       state.personagens.splice(index, 1)
     }
   },
   actions: {
+    setSelectedPersonagem({ commit }, { index, status }) {
+      commit('SET_SELECTED_PERSONAGEM', { index, status });
+    },
     setPersonagens({ commit }, data) {
-      commit('SAVE_PERSONAGENS', data)
+      commit('SAVE_PERSONAGENS', data);
     },
     rmPersonagenByIndex({ commit }, index) {
-      commit('REMOVE_PERSONAGEM', index)
+      commit('REMOVE_PERSONAGEM', index);
     }
   },
   getters: {

@@ -5,7 +5,7 @@
 
       <v-list-item :key="p.name">
         <v-list-item-action>
-          <v-checkbox color="primary"></v-checkbox>
+          <v-checkbox color="primary" :value="p.selected" @change="setSelected(index,p.selected)"></v-checkbox>
         </v-list-item-action>
 
         <v-list-item-content>
@@ -29,8 +29,11 @@ export default {
     }
   },
   methods: {
-    addSelected(index) {
-      this.selectedPersonagens.push(index);
+    setSelected(index, selected) {
+      this.$store.dispatch("setSelectedPersonagem", {
+        index,
+        status: !selected
+      });
     },
     getPersonagens() {
       fetch(this.apiURL + "people", {
