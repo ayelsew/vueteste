@@ -1,9 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app color="#33333" dark>
-      <div class="d-flex align-center">
-        StarWars
-      </div>
+      <div class="d-flex align-center">StarWars</div>
 
       <v-spacer></v-spacer>
 
@@ -19,7 +17,7 @@
       </v-btn>
     </v-app-bar>
 
-    <v-content>
+    <v-content class="main-content">
       <HelloWorld />
     </v-content>
   </v-app>
@@ -53,3 +51,30 @@ export default {
   })
 };
 </script>
+
+
+<style >
+@media (max-width: 600px) {
+}
+
+@media (min-width: 601px) and (max-width: 960px) {
+}
+
+@media (min-width: 961px) and (max-width: 1264px) {
+  .main-content {
+    padding: 0 14rem !important ;
+  }
+}
+
+@media (min-width: 1265px) and (max-width: 1904px) {
+  .main-content {
+    padding: 0 16rem !important ;
+  }
+}
+
+@media (min-width: 1905px) {
+  .main-content {
+    padding: 0 20rem !important ;
+  }
+}
+</style>
