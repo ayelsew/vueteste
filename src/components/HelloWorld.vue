@@ -1,16 +1,15 @@
 <template>
-  <v-list three-line>
+  <v-list >
     <template v-for="(p, index) in sortedPersonagens">
       <v-divider :key="index"></v-divider>
 
       <v-list-item :key="p.name">
         <v-list-item-action>
-          <v-checkbox color="primary" :value="p.selected" @change="setSelected(index,p.selected)"></v-checkbox>
+          <v-checkbox :value="p.selected" @change="setSelected(index,p.selected)"></v-checkbox>
         </v-list-item-action>
 
         <v-list-item-content>
-          <v-list-item-title v-html="p.name"></v-list-item-title>
-          <v-list-item-subtitle v-html="p.name"></v-list-item-subtitle>
+          <v-list-item-title :class="p.eye_color+'--text'" v-html="p.name"></v-list-item-title>
         </v-list-item-content>
         <v-list-item-action>
           <v-btn
@@ -69,6 +68,9 @@ export default {
   },
   mounted() {
     this.getPersonagens();
-  }
+  },
+  data: () => ({
+    active: false
+  })
 };
 </script>
