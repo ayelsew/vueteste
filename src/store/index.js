@@ -8,19 +8,19 @@ export default new Vuex.Store({
     personagens: []
   },
   mutations: {
-    savePersonganes(state, data) {
+    SAVE_PERSONAGENS(state, data) {
       state.personagens = state.personagens.concat(data)
     },
-    rmPersonagem(state, index) {
+    REMOVE_PERSONAGEM(state, index) {
       state.personagens.splice(index, 1)
     }
   },
   actions: {
     setPersonagens({ commit }, data) {
-      commit('savePersonganes', data)
+      commit('SAVE_PERSONAGENS', data)
     },
     rmPersonagenByIndex({ commit }, index) {
-      commit('rmPersonagem', index)
+      commit('REMOVE_PERSONAGEM', index)
     }
   },
   modules: {
