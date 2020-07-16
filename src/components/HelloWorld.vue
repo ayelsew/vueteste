@@ -1,7 +1,7 @@
 <template>
   <v-list three-line>
     <template v-for="(item, index) in items">
-      <v-divider :key="index" ></v-divider>
+      <v-divider :key="index"></v-divider>
 
       <v-list-item :key="item.title">
         <v-list-item-action>
@@ -20,6 +20,32 @@
 <script>
 export default {
   name: "HelloWorld",
+  computed: {
+    apiURL() {
+      return this.$store.state.apiswurl;
+    }
+  },
+  methods: {
+    getPersonagens() {
+      fetch(this.apiURL + "people", {
+        method: "get"
+      })
+        .then(async res => {
+          if (res.status === 200) {
+            const data = await res.json();
+            this.$store.dispatch("setPersonagens", data.results);
+          } else {
+            return Promise.reject(res);
+          }
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+  },
+  mounted() {
+    this.getPersonagens();
+  },
   data: () => ({
     items: [
       {
