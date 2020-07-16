@@ -1,10 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
+    <v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
@@ -28,33 +24,48 @@
       <v-spacer></v-spacer>
 
       <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
+        :disabled="!hasSelectedPersonagens"
+        fab
+        depressed
+        small
+        color="transparent"
+        @click="deleteSelectedPersonagens()"
       >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+        <v-icon>mdi-delete</v-icon>
       </v-btn>
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <HelloWorld />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import HelloWorld from "./components/HelloWorld";
 
 export default {
-  name: 'App',
+  name: "App",
 
   components: {
-    HelloWorld,
+    HelloWorld
   },
-
+  computed: {
+    selectedPersonagensByIndex() {
+      return this.$store.getters.selectedPersonagensByIndex;
+    },
+    hasSelectedPersonagens() {
+      return this.$store.getters.selectedPersonagensByIndex.length > 0;
+    }
+  },
+  methods: {
+    deleteSelectedPersonagens() {
+      const indexArray = this.selectedPersonagensByIndex;
+      this.$store.dispatch("rmPersonagenByIndex", indexArray);
+    }
+  },
   data: () => ({
     //
-  }),
+  })
 };
 </script>

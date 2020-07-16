@@ -13,10 +13,18 @@ export default new Vuex.Store({
       state.personagens = state.personagens.concat(data)
     },
     SET_SELECTED_PERSONAGEM(state, { index, status }) {
-      state.personagens[index]['selected'] = status
+      let personagem = state.personagens[index]
+      personagem['selected'] = status
+      state.personagens = [
+        ...state.personagens.filter((item, i) => i !== index),
+        personagem
+      ]
+
     },
-    REMOVE_PERSONAGEM(state, index) {
-      state.personagens.splice(index, 1)
+    REMOVE_PERSONAGEM(state, arrayIndex = []) {
+      state.personagens = [
+        ...state.personagens.filter((item, i) => !(arrayIndex.includes(i)))
+      ]
     }
   },
   actions: {
@@ -26,8 +34,8 @@ export default new Vuex.Store({
     setPersonagens({ commit }, data) {
       commit('SAVE_PERSONAGENS', data);
     },
-    rmPersonagenByIndex({ commit }, index) {
-      commit('REMOVE_PERSONAGEM', index);
+    rmPersonagenByIndex({ commit }, arrayIndex) {
+      commit('REMOVE_PERSONAGEM', arrayIndex);
     }
   },
   getters: {
@@ -35,7 +43,17 @@ export default new Vuex.Store({
       return state.personagens.sort((a, b) => (
         a.name.localeCompare(b.name)
       ))
-    }
+    },
+    selectedPersonagensByIndex(state) {
+      let selected = [];
+      state.personagens.forEach((personagem, index) => {
+        if (personagem.selected === true) {
+          selected.push(index)
+        }
+      })
+
+      return selected;
+    },
   },
   modules: {
   }
