@@ -33,7 +33,7 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "Lista",
   computed: {
     apiURL() {
       return this.$store.state.apiswurl;

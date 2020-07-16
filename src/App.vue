@@ -18,19 +18,19 @@
     </v-app-bar>
 
     <v-content class="main-content">
-      <HelloWorld />
+      <Lista />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+import Lista from "./components/Lista";
 
 export default {
   name: "App",
 
   components: {
-    HelloWorld
+    Lista
   },
   computed: {
     selectedPersonagensByIndex() {
