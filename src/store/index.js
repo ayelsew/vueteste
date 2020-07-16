@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    personagens: []
+    apiswurl: 'https://swapi.dev/api/',
+    personagens: [],
   },
   mutations: {
     SAVE_PERSONAGENS(state, data) {
