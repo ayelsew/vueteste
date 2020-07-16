@@ -12,6 +12,18 @@
           <v-list-item-title v-html="p.name"></v-list-item-title>
           <v-list-item-subtitle v-html="p.name"></v-list-item-subtitle>
         </v-list-item-content>
+        <v-list-item-action>
+          <v-btn
+            :hidden="!p.selected"
+            fab
+            depressed
+            small
+            color="transparent"
+            @click="rmPersonagemByIndex(index)"
+          >
+            <v-icon>mdi-delete</v-icon>
+          </v-btn>
+        </v-list-item-action>
       </v-list-item>
     </template>
   </v-list>
@@ -29,6 +41,9 @@ export default {
     }
   },
   methods: {
+    rmPersonagemByIndex(index) {
+      this.$store.dispatch("rmPersonagenByIndex", [index]);
+    },
     setSelected(index, selected) {
       this.$store.dispatch("setSelectedPersonagem", {
         index,
