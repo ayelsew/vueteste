@@ -24,6 +24,13 @@ export default new Vuex.Store({
       commit('REMOVE_PERSONAGEM', index)
     }
   },
+  getters: {
+    sortPersonagens(state) {
+      return state.personagens.sort((a, b) => (
+        a.name.localeCompare(b.name)
+      ))
+    }
+  },
   modules: {
   }
 })
