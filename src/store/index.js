@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    personagens: []
   },
   mutations: {
     SAVE_PERSONAGENS(state, data) {
