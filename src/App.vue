@@ -17,9 +17,9 @@
       </v-btn>
     </v-app-bar>
 
-    <v-content class="main-content">
+    <v-main class="main-content">
       <Lista />
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 

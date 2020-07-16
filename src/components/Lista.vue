@@ -54,7 +54,7 @@ export default {
     },
     getPersonagens() {
       fetch(this.apiURL + "people", {
-        method: "get"
+        method: "get",
       })
         .then(async res => {
           if (res.status === 200) {
